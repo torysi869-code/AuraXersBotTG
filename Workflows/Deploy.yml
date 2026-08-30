@@ -1,0 +1,16 @@
+name: Deploy bot
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and run
+        env:
+          BOT_TOKEN: ${{ secrets.8608795268:AAGw_ODCYK7-2rQEL6koyMppNUYuuk26ybs }}
+          DEEPSEEK_KEY: ${{ secrets.sk-079a186a8c1045829433689bad874a4e }}
+        run: |
+          docker build -t auramini_bot .
+          docker run -d -e 8608795268:AAGw_ODCYK7-2rQEL6koyMppNUYuuk26ybs=$8608795268:AAGw_ODCYK7-2rQEL6koyMppNUYuuk26ybs -e sk-079a186a8c1045829433689bad874a4e=$sk-079a186a8c1045829433689bad874a4e --restart unless-stopped AuraXersBot
